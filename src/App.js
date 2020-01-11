@@ -12,6 +12,9 @@ class App extends Component {
 
   sortByParameter(parameter) {
     // set state of 'parameterState' here
+    const data = this.state.data;
+    let newData = data.sort(this.compare('parameter'));
+    this.setState({data: newData});
   }
 
   render() {
@@ -23,10 +26,9 @@ class App extends Component {
         <Radio />
         <Table />
       </div>
-);
-
-
+    );
   }
 }
 
 export default App;
+

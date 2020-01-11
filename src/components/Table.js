@@ -34,10 +34,28 @@ class Table extends Component {
 	}
 	compareDates(person1, person2) {
 		// complete this date comparator which enables sort by age
+		let value1 = person1['birth'];
+		let value2 = person2['birth'];
+		if (value1 < value2) {
+			return 1;
+		} else if (value1 > value2) {
+			return -1;
+		} else {
+			return 0;
+		}
 	}
 
 	compareNames(person1, person2) {
 		// complete this string comparator with enables sort by name
+		let value1 = person1['name'];
+		let value2 = person2['name'];
+		if (value1 < value2) {
+			return -1;
+		} else if (value1 > value2) {
+			return 1;
+		} else {
+			return 0;
+		}
 	}
 
 	render() {
@@ -51,9 +69,14 @@ class Table extends Component {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td />
-        </tr>
+				{newData.map((data, index) => {
+				return(
+					<tr key={index}>
+						<td className='td'>{data.name}</td>
+						<td className='td'>{data.date}</td>
+					</tr>
+				)
+				})}
       </tbody>
     </table>
   </div>
@@ -68,3 +91,7 @@ class Table extends Component {
 // }
 
 export default Table;
+
+
+
+
